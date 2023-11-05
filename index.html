@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="reset">Обнулить рейк</button>
+
+    <form class="add">
+      <input
+        type="date"
+        class="date"
+        min="2023-11-01"
+        max="2023-11-30"
+        required
+      />
+      <button type="submit">Добавить рейк за день</button>
+    </form>
+
+    <div class="wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Идентификатор</th>
+            <th>Игрок</th>
+            <th>Рейк в текущем месяце</th>
+            <th>Рейк в прошлом месяце</th>
+          </tr>
+        </thead>
+        <tbody class="table-body"></tbody>
+      </table>
+    </div>
+
+    <script type="module" src="scripts/index.js"></script>
+  </body>
+</html>
