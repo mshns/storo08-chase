@@ -7,28 +7,28 @@
     <title>Document</title>
   </head>
   <body>
-    <button class="reset">Обнулить рейк</button>
-
-    <form class="add">
-      <input type="date" class="date" required />
-      <button type="submit">Добавить рейк за день</button>
+    <form class="form">
+      <input class="year" type="number" required />
+      <input class="month" type="number" min="1" max="12" required />
+      <button type="submit">Submit</button>
     </form>
 
-    <div class="wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>Идентификатор</th>
-            <th>Игрок</th>
-            <th>Рейк в текущем месяце</th>
-            <th>Рейкбек в текущем месяце</th>
-            <th>Рейк в прошлом месяце</th>
-            <th>Рейкбек в прошлом месяце</th>
-          </tr>
-        </thead>
-        <tbody class="table-body"></tbody>
-      </table>
-    </div>
+    <h4>
+      Общая сумма рейкбека <span class="request-month"></span>:
+      <span class="rake-total"></span>
+    </h4>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Идентификатор</th>
+          <th>Игрок</th>
+          <th>Рейк в месяце</th>
+          <th>Рейкбек</th>
+        </tr>
+      </thead>
+      <tbody class="table-body"></tbody>
+    </table>
 
     <script type="module" src="scripts/index.js"></script>
   </body>
