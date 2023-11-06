@@ -1,4 +1,4 @@
-const steps = (rake) => {
+const prize = (rake) => {
   if (rake < 1500) return 50;
   if (rake < 2000) return 75;
   if (rake < 3000) return 100;
@@ -12,4 +12,4 @@ const steps = (rake) => {
   return Math.floor(rake / 2500) * 125;
 };
 
-export default steps;
+export default prize;
