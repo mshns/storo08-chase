@@ -1,4 +1,5 @@
 const prize = (rake) => {
+  if (rake < 1000) return 0;
   if (rake < 1500) return 50;
   if (rake < 2000) return 75;
   if (rake < 3000) return 100;
