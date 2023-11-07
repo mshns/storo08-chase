@@ -22,7 +22,7 @@ form.addEventListener('submit', (event) => {
   const requestList = dateList.map((date) => {
     const url =
       archivDate > date
-        ? `../data/${date}.json`
+        ? `https://storo08.ru/chase/data/${date}.json`
         : `https://twister-races.onrender.com/hands?date=${date}`;
 
     return fetch(url)
