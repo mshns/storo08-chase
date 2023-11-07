@@ -1,15 +1,17 @@
-import { datesOfMonth, prize, renderData } from './helpers/index.js';
-import archivDate from './constants/archiveDate.js';
+import { datesOfMonth, prize, renderData } from '../scripts/helpers/index.js';
+import archivDate from '../scripts/constants/archiveDate.js';
 
 const tableBody = document.querySelector('.table-body');
 const form = document.querySelector('.form');
-const login = document.querySelector('.login');
 const year = document.querySelector('.year');
 const month = document.querySelector('.month');
+const requestMonth = document.querySelector('.request-month');
+const rakeTotal = document.querySelector('.rake-total');
 
 const date = new Date();
 year.value = date.getUTCFullYear();
 month.value = date.getUTCMonth() + 1;
+
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -54,17 +56,20 @@ form.addEventListener('submit', (event) => {
       });
 
       tableBody.innerHTML = '';
+      requestMonth.textContent = `за ${month.value}-${year.value}`;
 
       return chaseList;
     })
     .then((data) => {
+      let rakeTotalCount = 0;
       data
-        .filter(
-          (item) => item.username.toLowerCase() === login.value.toLowerCase()
-        )
+        .filter((item) => item.rake >= 1000 && item.username != 'sanchess08')
+        .sort((a, b) => b.rake - a.rake)
         .map((item) => {
           tableBody.append(renderData(item));
+          rakeTotalCount += prize(item.rake);
         });
+      rakeTotal.textContent = rakeTotalCount;
     })
     .catch(() => {
       tableBody.innerHTML = 'Что-то пошло не так. Попробуйте снова.';
