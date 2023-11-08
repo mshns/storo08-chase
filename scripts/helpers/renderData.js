@@ -15,9 +15,9 @@ const renderData = (item) => {
   rake.textContent = item.rake.toFixed(2);
   tr.append(rake);
 
-  const rakeBackCurrent = document.createElement('td');
-  rakeBackCurrent.textContent = prize(item.rake);
-  tr.append(rakeBackCurrent);
+  const rakeBack = document.createElement('td');
+  rakeBack.textContent = prize(item.rake);
+  tr.append(rakeBack);
 
   return tr;
 };

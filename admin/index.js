@@ -1,21 +1,24 @@
 import { datesOfMonth, prize, renderData } from '../scripts/helpers/index.js';
 import archivDate from '../scripts/constants/archiveDate.js';
 
-const tableBody = document.querySelector('.table-body');
 const form = document.querySelector('.form');
 const year = document.querySelector('.year');
 const month = document.querySelector('.month');
-const requestMonth = document.querySelector('.request-month');
-const rakeTotal = document.querySelector('.rake-total');
+const tableBody = document.querySelector('.table-body');
+const message = document.querySelector('.message');
+
+const reportDownload = document.querySelector('.report');
+const report = [];
+let reportTitle = `Выплаты storo08 Race Chase за ${month.value}-${year.value}`;
 
 const date = new Date();
 year.value = date.getUTCFullYear();
 month.value = date.getUTCMonth() + 1;
 
-
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  tableBody.innerHTML = 'Загрузка данных...';
+  message.textContent = 'Загрузка данных. Пожалуйста, подождите.';
+  reportDownload.setAttribute('disabled', true);
 
   const dateList = datesOfMonth(year.value, month.value);
 
@@ -32,7 +35,6 @@ form.addEventListener('submit', (event) => {
 
   Promise.all(requestList)
     .then((data) => {
-      console.log(data);
       const chaseList = [];
 
       data.map((dailyRakeList) => {
@@ -56,22 +58,40 @@ form.addEventListener('submit', (event) => {
       });
 
       tableBody.innerHTML = '';
-      requestMonth.textContent = `за ${month.value}-${year.value}`;
+      report.length = 0;
 
       return chaseList;
     })
     .then((data) => {
       let rakeTotalCount = 0;
+      reportTitle = `Выплаты storo08 Race Chase за ${month.value}-${year.value}`;
+      report.push(reportTitle, '');
+
       data
         .filter((item) => item.rake >= 1000 && item.username != 'sanchess08')
         .sort((a, b) => b.rake - a.rake)
         .map((item) => {
           tableBody.append(renderData(item));
           rakeTotalCount += prize(item.rake);
+          report.push(`${item.username} - ${prize(item.rake)}`);
         });
-      rakeTotal.textContent = rakeTotalCount;
+
+      message.textContent = `Общая сумма Chase выплат: ${rakeTotalCount}`;
+      reportDownload.removeAttribute('disabled');
     })
     .catch(() => {
       tableBody.innerHTML = 'Что-то пошло не так. Попробуйте снова.';
     });
+});
+
+reportDownload.addEventListener('click', () => {
+  const element = document.createElement('a');
+  const file = new Blob([report.join('\n')], {
+    type: 'text/plain;charset=UTF-8',
+  });
+  element.href = URL.createObjectURL(file);
+  element.download = `${reportTitle}.txt`;
+  document.body.appendChild(element);
+  element.click();
+  element.remove();
 });
