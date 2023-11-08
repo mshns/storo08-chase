@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.controll {
+  display: flex;
+  margin: 20px;
+}
+
+.message {
+  margin-top: 0;
+}
+
+.report {
+  margin-left: 20px;
+}
+
+button,
+input {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+button {
+  cursor: pointer;
+}
+
+.year {
+  width: 80px;
+}
+
+.month {
+  width: 56px;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(204, 204, 204, 0.5);
+}
+
+td:nth-child(even) {
+  font-weight: 700;
+}
+
+th {
+  min-width: 150px;
+  text-align: left;
+  border-bottom: 0.5px solid rgb(0, 0, 0);
+}
