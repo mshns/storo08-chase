@@ -3,29 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles/index.css" />
     <title>storo08 chase</title>
   </head>
   <body>
-    <form class="form">
-      <input class="login" placeholder="Login" required />
-      <input class="year" type="number" required />
-      <input class="month" type="number" min="1" max="12" required />
-      <button type="submit">Submit</button>
-    </form>
+    <main class="main">
+      <form class="form">
+        <input class="login" placeholder="Login" required />
+        <input class="year" type="number" required />
+        <input class="month" type="number" min="1" max="12" required />
+        <button class="button" type="submit">Submit</button>
+      </form>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Идентификатор</th>
-          <th>Логин игрока</th>
-          <th>Рейк за месяц</th>
-          <th>Chase выплата</th>
-        </tr>
-      </thead>
-      <tbody class="table-body"></tbody>
-    </table>
+      <table class="table">
+        <thead>
+          <tr class="row">
+            <th class="cell">Идентификатор</th>
+            <th class="cell">Логин игрока</th>
+            <th class="cell">Рейк за месяц</th>
+            <th class="cell">Chase выплата</th>
+          </tr>
+          <tr class="row">
+            <th class="cell"></th>
+            <th class="cell"></th>
+            <th class="cell"></th>
+            <th class="cell"></th>
+          </tr>
+        </thead>
+        <tbody class="table-body"></tbody>
+      </table>
+    </main>
 
     <script type="module" src="scripts/index.js"></script>
   </body>
