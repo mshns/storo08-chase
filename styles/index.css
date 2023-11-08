@@ -7,5 +7,86 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: center;
   margin: 0;
+  color: rgb(229, 18, 51);
+  font-family: 'Russo One', sans-serif;
+  background-color: rgb(242, 242, 242);
+}
+
+.main {
+  width: 1000px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  color: rgb(229, 18, 51);
+  font-family: 'Russo One', sans-serif;
+  font-weight: 100;
+}
+
+.login,
+.year,
+.month {
+  color: rgb(229, 18, 51);
+  font-family: 'Russo One', sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  outline: none;
+  border: none;
+  border: 2px solid rgb(28, 28, 28);
+  background: rgb(242, 242, 242);
+  transition: ease-in-out 0.2s;
+}
+
+.login::placeholder {
+  color: rgb(229, 18, 51);
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 25px;
+  color: rgb(229, 18, 51);
+  font-family: 'Russo One', sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  outline: none;
+  border: 2px solid rgb(28, 28, 28);
+  background: rgb(242, 242, 242);
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.button:hover {
+  color: rgb(242, 242, 242);
+  background-color: rgb(229, 18, 51);
+}
+
+.table {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 200px;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 100;
+  border: 1px solid rgb(28, 28, 28);
 }
