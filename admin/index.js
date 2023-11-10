@@ -1,5 +1,4 @@
 import { datesOfMonth, prize, renderData } from '../scripts/helpers/index.js';
-import archivDate from '../scripts/constants/archiveDate.js';
 
 const form = document.querySelector('.form');
 const year = document.querySelector('.year');
@@ -11,6 +10,9 @@ const reportDownload = document.querySelector('.report');
 const report = [];
 let reportTitle = `Выплаты storo08 Race Chase за ${month.value}-${year.value}`;
 
+const renderWhole = document.querySelector('.whole');
+const wholeList = [];
+
 const date = new Date();
 year.value = date.getUTCFullYear();
 month.value = date.getUTCMonth() + 1;
@@ -19,16 +21,12 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   message.textContent = 'Загрузка данных. Пожалуйста, подождите.';
   reportDownload.setAttribute('disabled', true);
+  renderWhole.setAttribute('disabled', true);
 
   const dateList = datesOfMonth(year.value, month.value);
 
   const requestList = dateList.map((date) => {
-    const url =
-      archivDate > date
-        ? `https://storo08.ru/chase/data/${date}.json`
-        : `https://twister-races.onrender.com/hands?date=${date}`;
-
-    return fetch(url)
+    return fetch(`https://twister-races.onrender.com/chase/${date}.json`)
       .then((response) => response.json())
       .then((data) => data.data);
   });
@@ -59,6 +57,7 @@ form.addEventListener('submit', (event) => {
 
       tableBody.innerHTML = '';
       report.length = 0;
+      wholeList.length = 0;
 
       return chaseList;
     })
@@ -66,6 +65,7 @@ form.addEventListener('submit', (event) => {
       let rakeTotalCount = 0;
       reportTitle = `Выплаты storo08 Race Chase за ${month.value}-${year.value}`;
       report.push(reportTitle, '');
+      wholeList.push(...data);
 
       data
         .filter((item) => item.rake >= 1000 && item.username != 'sanchess08')
@@ -78,6 +78,7 @@ form.addEventListener('submit', (event) => {
 
       message.textContent = `Общая сумма Chase выплат: ${rakeTotalCount}`;
       reportDownload.removeAttribute('disabled');
+      renderWhole.removeAttribute('disabled');
     })
     .catch(() => {
       tableBody.innerHTML = 'Что-то пошло не так. Попробуйте снова.';
@@ -94,4 +95,12 @@ reportDownload.addEventListener('click', () => {
   document.body.appendChild(element);
   element.click();
   element.remove();
+});
+
+renderWhole.addEventListener('click', () => {
+  tableBody.innerHTML = '';
+  wholeList
+    .filter((item) => item.rake > 0)
+    .sort((a, b) => b.rake - a.rake)
+    .map((item) => tableBody.append(renderData(item)));
 });

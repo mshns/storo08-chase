@@ -76,9 +76,6 @@ body {
   justify-content: center;
 }
 
-.row {
-  display: flex;
-}
 
 .cell {
   width: 200px;
