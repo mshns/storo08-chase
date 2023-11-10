@@ -1,5 +1,4 @@
 import { datesOfMonth, prize, renderData } from '../scripts/helpers/index.js';
-import archivDate from '../scripts/constants/archiveDate.js';
 
 const form = document.querySelector('.form');
 const year = document.querySelector('.year');
@@ -27,12 +26,7 @@ form.addEventListener('submit', (event) => {
   const dateList = datesOfMonth(year.value, month.value);
 
   const requestList = dateList.map((date) => {
-    const url =
-      archivDate > date
-        ? `https://storo08.ru/chase/data/${date}.json`
-        : `https://twister-races.onrender.com/hands?date=${date}`;
-
-    return fetch(url)
+    return fetch(`https://twister-races.onrender.com/chase/${date}.json`)
       .then((response) => response.json())
       .then((data) => data.data);
   });
