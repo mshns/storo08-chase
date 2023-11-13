@@ -1,5 +1,14 @@
+:root {
+  --primary-color: rgb(229, 18, 51);
+  --secondary-color: rgb(28, 28, 28);
+  --background-color: rgb(242, 242, 242);
+}
+
 * {
   box-sizing: border-box;
+  font-family: 'Russo One', sans-serif;
+  font-weight: 100;
+  color: var(--secondary-color);
 }
 
 html {
@@ -7,83 +16,99 @@ html {
 }
 
 body {
-  display: flex;
-  justify-content: center;
   margin: 0;
-  color: rgb(229, 18, 51);
-  font-family: 'Russo One', sans-serif;
-  background-color: rgb(242, 242, 242);
-}
-
-.main {
-  width: 1000px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.form {
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+header,
+footer {
+  background-color: var(--background-color);
+}
+
+header .container,
+footer .container {
   display: flex;
-  justify-content: center;
-  padding: 50px;
-  color: rgb(229, 18, 51);
-  font-family: 'Russo One', sans-serif;
-  font-weight: 100;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--background-color);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.form fieldset {
+  width: 720px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--background-color);
+}
+
+legend {
+  color: var(--primary-color);
+  padding: 10px;
+}
+
+.form-controll {
+  display: flex;
+  justify-content: space-between;
 }
 
 .login,
 .year,
 .month {
-  color: rgb(229, 18, 51);
-  font-family: 'Russo One', sans-serif;
   font-size: 16px;
-  font-weight: 100;
-  outline: none;
+  width: 200px;
+  padding: 5px 10px;
   border: none;
-  border: 2px solid rgb(28, 28, 28);
-  background: rgb(242, 242, 242);
+  border-radius: 5px;
+  outline: none;
   transition: ease-in-out 0.2s;
 }
 
-.login::placeholder {
-  color: rgb(229, 18, 51);
+.year {
+  width: 84px;
+}
+
+.month {
+  width: 60px;
 }
 
 .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80px;
-  height: 25px;
-  color: rgb(229, 18, 51);
-  font-family: 'Russo One', sans-serif;
+  padding: 5px 10px;
   font-size: 16px;
-  font-weight: 100;
+  text-transform: uppercase;
+  color: var(--background-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
   outline: none;
-  border: 2px solid rgb(28, 28, 28);
-  background: rgb(242, 242, 242);
   cursor: pointer;
   transition: ease-in-out 0.2s;
 }
 
 .button:hover {
-  color: rgb(242, 242, 242);
-  background-color: rgb(229, 18, 51);
+  background-color: var(--secondary-color);
 }
 
-.table {
-  display: flex;
-  justify-content: center;
+.message {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
 }
 
-
-.cell {
-  width: 200px;
-  height: 30px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 100;
-  border: 1px solid rgb(28, 28, 28);
+footer {
+  margin-top: auto;
 }
