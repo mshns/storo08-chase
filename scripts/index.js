@@ -48,16 +48,26 @@ form.addEventListener('submit', (event) => {
 
       return chaseList;
     })
-    .then((data) => {
-      const player = data.find(
+    .then((chaseList) => {
+      const player = chaseList.find(
         (item) => item.username.toLowerCase() === login.value.toLowerCase()
       );
 
-      message.textContent = player
-        ? `Набрано рейка: $${player.rake.toFixed(2)}. Chase выплата: $${prize(
-            player.rake
-          )}`
-        : 'Игрок не найдён. Проверьте введённый Login.';
+      if (player) {
+        message.textContent = '';
+
+        const rake = document.createElement('div');
+        rake.classList.add('chase');
+        rake.textContent = `Набрано рейка: $${player.rake.toFixed(2)}`;
+        message.append(rake);
+
+        const prizeChase = document.createElement('div');
+        prizeChase.classList.add('chase');
+        prizeChase.textContent = `Chase выплата: $${prize(player.rake)}`;
+        message.append(prizeChase);
+      } else {
+        message.textContent = 'Игрок не найден. Проверьте введённый Login.';
+      }
     })
     .catch(() => {
       message.textContent = 'Что-то пошло не так. Попробуйте снова.';
