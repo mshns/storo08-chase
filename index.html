@@ -11,21 +11,40 @@
     />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles/index.css" />
-    <title>storo08 chase</title>
+    <title>storo08 Race Chase</title>
   </head>
   <body>
-    <main class="main">
-      <form class="form">
-        <input class="login" placeholder="Login" required />
-        <input class="year" type="number" required />
-        <input class="month" type="number" min="1" max="12" required />
-        <button class="button" type="submit">Submit</button>
-      </form>
+    <header>
+      <div class="container">
+        <h1>storo08 Race Chase</h1>
+        <h3>Description</h3>
+      </div>
+    </header>
 
-      <table class="table">
-        <tbody class="table-body"></tbody>
-      </table>
+    <main>
+      <div class="container">
+        <form class="form">
+          <fieldset>
+            <legend>Узнай свою Chase выплату</legend>
+            <div class="form-controll">
+              <input class="login" placeholder="Login на RedStar" required />
+              <input class="year" type="number" required />
+              <input class="month" type="number" min="1" max="12" required />
+              <button class="button" type="submit">Chase выплата</button>
+            </div>
+
+            <div class="message">Чтобы узнать Chase выплату, введите свой Login на RedStar и укажите месяц</div>
+          </fieldset>
+        </form>
+      </div>
     </main>
+
+    <footer>
+      <div class="container">
+        <h4>storo08 Race Chase © 2023</h4>
+        <h4>RedStar Poker</h4>
+      </div>
+    </footer>
 
     <script type="module" src="scripts/index.js"></script>
   </body>

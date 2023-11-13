@@ -1,10 +1,10 @@
-import { datesOfMonth, renderData } from './helpers/index.js';
+import { datesOfMonth, prize } from './helpers/index.js';
 
-const tableBody = document.querySelector('.table-body');
 const form = document.querySelector('.form');
 const login = document.querySelector('.login');
 const year = document.querySelector('.year');
 const month = document.querySelector('.month');
+const message = document.querySelector('.message');
 
 const date = new Date();
 year.value = date.getUTCFullYear();
@@ -12,7 +12,7 @@ month.value = date.getUTCMonth() + 1;
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  tableBody.innerHTML = 'Загрузка данных...';
+  message.textContent = 'Загрузка данных...';
 
   const dateList = datesOfMonth(year.value, month.value);
 
@@ -46,20 +46,20 @@ form.addEventListener('submit', (event) => {
         });
       });
 
-      tableBody.innerHTML = '';
-
       return chaseList;
     })
     .then((data) => {
-      data
-        .filter(
-          (item) => item.username.toLowerCase() === login.value.toLowerCase()
-        )
-        .map((item) => {
-          tableBody.append(renderData(item));
-        });
+      const player = data.find(
+        (item) => item.username.toLowerCase() === login.value.toLowerCase()
+      );
+
+      message.textContent = player
+        ? `Набрано рейка: $${player.rake.toFixed(2)}. Chase выплата: $${prize(
+            player.rake
+          )}`
+        : 'Игрок не найдён. Проверьте введённый Login.';
     })
     .catch(() => {
-      tableBody.innerHTML = 'Что-то пошло не так. Попробуйте снова.';
+      message.textContent = 'Что-то пошло не так. Попробуйте снова.';
     });
 });
