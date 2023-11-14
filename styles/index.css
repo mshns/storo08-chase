@@ -44,9 +44,33 @@ footer .container {
   color: var(--primary-color);
 }
 
+.description {
+  width: 490px;
+}
+
+a {
+  color: var(--primary-color);
+}
+
 main {
   display: flex;
   flex-direction: column;
+}
+
+.subtitle,
+caption {
+  color: var(--primary-color);
+}
+
+.about {
+  width: 720px;
+  margin: 0;
+  padding: 0 20px 20px;
+  border-bottom: 1px solid var(--background-color);
+}
+
+.form {
+  margin: 20px 0;
 }
 
 .form fieldset {
@@ -117,6 +141,20 @@ legend {
 
 .message .chase {
   color: var(--primary-color);
+}
+
+table {
+  margin: 20px 0;
+}
+
+tr {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid var(--background-color);
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(204, 204, 204, 0.5);
 }
 
 footer {

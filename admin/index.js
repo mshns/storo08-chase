@@ -1,4 +1,4 @@
-import { datesOfMonth, prize, renderData } from '../scripts/helpers/index.js';
+import { datesOfMonth, getPrize, renderData } from '../scripts/helpers/index.js';
 
 const form = document.querySelector('.form');
 const year = document.querySelector('.year');
@@ -72,8 +72,8 @@ form.addEventListener('submit', (event) => {
         .sort((a, b) => b.rake - a.rake)
         .map((item) => {
           tableBody.append(renderData(item));
-          rakeTotalCount += prize(item.rake);
-          report.push(`${item.username} - ${prize(item.rake)}`);
+          rakeTotalCount += getPrize(item.rake);
+          report.push(`${item.username} - ${getPrize(item.rake)}`);
         });
 
       message.textContent = `Общая сумма Chase выплат: ${rakeTotalCount}`;
