@@ -1,4 +1,4 @@
-import prize from './prize.js';
+import getPrize from './getPrize.js';
 
 const renderData = (item) => {
   const tr = document.createElement('tr');
@@ -16,7 +16,7 @@ const renderData = (item) => {
   tr.append(rake);
 
   const rakeBack = document.createElement('td');
-  rakeBack.textContent = prize(item.rake);
+  rakeBack.textContent = getPrize(item.rake);
   tr.append(rakeBack);
 
   return tr;

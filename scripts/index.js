@@ -1,4 +1,4 @@
-import { datesOfMonth, prize } from './helpers/index.js';
+import { datesOfMonth, getPrize } from './helpers/index.js';
 
 const form = document.querySelector('.form');
 const login = document.querySelector('.login');
@@ -63,7 +63,7 @@ form.addEventListener('submit', (event) => {
 
         const prizeChase = document.createElement('div');
         prizeChase.classList.add('chase');
-        prizeChase.textContent = `Chase выплата: $${prize(player.rake)}`;
+        prizeChase.textContent = `Chase выплата: $${getPrize(player.rake)}`;
         message.append(prizeChase);
       } else {
         message.textContent = 'Игрок не найден. Проверьте введённый Login.';

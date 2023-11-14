@@ -1,4 +1,4 @@
-const prize = (rake) => {
+const getPrize = (rake) => {
   if (rake < 1000) return 0;
   if (rake < 1500) return 50;
   if (rake < 2000) return 75;
@@ -13,4 +13,4 @@ const prize = (rake) => {
   return Math.floor(rake / 2500) * 125;
 };
 
-export default prize;
+export default getPrize;
