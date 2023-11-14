@@ -35,6 +35,7 @@ footer {
 header .container,
 footer .container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   background: var(--background-color);
@@ -45,7 +46,8 @@ footer .container {
 }
 
 .description {
-  width: 490px;
+  max-width: 490px;
+  margin: 20px;
 }
 
 a {
@@ -89,6 +91,7 @@ legend {
 
 .form-controll {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -150,13 +153,60 @@ table {
 tr {
   display: flex;
   justify-content: space-around;
+  border-radius: 5px;
   border-bottom: 1px solid var(--background-color);
 }
 
 tr:nth-child(odd) {
-  background-color: rgb(204, 204, 204, 0.5);
+  background-color: var(--background-color);
 }
 
 footer {
   margin-top: auto;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 100%;
+  }
+
+  header .container {
+    flex-direction: column;
+  }
+
+  .logo {
+    color: var(--primary-color);
+  }
+
+  .description {
+    margin-top: 0;
+  }
+
+  .form {
+    margin: 20px;
+  }
+
+  .form fieldset {
+    max-width: 100%;
+  }
+
+  .subtitle {
+    padding: 0 20px;
+  }
+
+  .about {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .login {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .form-controll button {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
