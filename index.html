@@ -3,32 +3,157 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles/index.css" />
-    <title>Document</title>
+    <title>storo08 Race Chase</title>
   </head>
   <body>
-    <button class="reset">Обнулить рейк</button>
+    <header>
+      <div class="container">
+        <h1 class="logo">storo08 Race Chase</h1>
+        <p class="description">
+          Специальная акция для активных игроков
+          <a href="https://c.rsppartners.com/clickthrgh?btag=a_9631b_75l_9"
+            >RedStar Poker</a
+          >, зарегистрированных с промокодом: storo08
+        </p>
+      </div>
+    </header>
 
-    <form class="add">
-      <input type="date" class="date" required />
-      <button type="submit">Добавить рейк за день</button>
-    </form>
+    <main class="container">
+      <h3 class="subtitle">Получайте дополнительные 5% рейкбека на RedStar!</h3>
+      <p class="about">
+        storo08 Race Chase - это специальная акция для активных игроков в покер,
+        зарегистрированных на
+        <a href="https://c.rsppartners.com/clickthrgh?btag=a_9631b_75l_9"
+          >RedStar c промокодом: storo08</a
+        >, которая позволяет ежемесячно получать дополнительные 5% рейкбека на
+        свой счёт!
+      </p>
 
-    <div class="wrapper">
+      <h3 class="subtitle">Кто может участвовать в акции?</h3>
+      <p class="about">
+        Неважно, какой конкретно вид покера вы предпочитаете. Приватная акция
+        storo08 Race Chase подойдёт игрокам в кэш, MTT и SnG - турниры.
+        <br /><br />
+        В акции storo08 Race Chase автоматически участвуют все игроки,
+        зарегистрированные на
+        <a href="https://c.rsppartners.com/clickthrgh?btag=a_9631b_75l_9"
+          >RedStar c промокодом: storo08</a
+        >, дополнительная регистрация в акции не требуется.
+      </p>
+
+      <form class="form">
+        <fieldset>
+          <legend>Узнайте свою Chase выплату</legend>
+          <div class="form-controll">
+            <input class="login" placeholder="Login на RedStar" required />
+            <input class="year" type="number" required />
+            <input class="month" type="number" min="1" max="12" required />
+            <button class="button" type="submit">Узнать Chase выплату</button>
+          </div>
+
+          <div class="message">
+            Чтобы узнать Chase выплату, введите свой Login на RedStar и укажите
+            месяц
+          </div>
+        </fieldset>
+      </form>
+
+      <h3 class="subtitle">Как рассчитывается Chase выплата?</h3>
+      <p class="about">
+        Для расчёта Chase выплаты учитывается общая сумма рейка, набранная за
+        месяц во всех покерных играх. Чтобы получить Chase выплату, необходимо
+        за календарный месяц наиграть минимум $1000 рейка.
+        <br /><br />
+        Chase выплаты разделены на уровни. Чем больше сыграно рук и турниров,
+        тем больше выплата!
+      </p>
+
       <table>
-        <thead>
-          <tr>
-            <th>Идентификатор</th>
-            <th>Игрок</th>
-            <th>Рейк в текущем месяце</th>
-            <th>Рейкбек в текущем месяце</th>
-            <th>Рейк в прошлом месяце</th>
-            <th>Рейкбек в прошлом месяце</th>
-          </tr>
-        </thead>
-        <tbody class="table-body"></tbody>
+        <caption>
+          Уровни Chase выплат
+        </caption>
+        <tr>
+          <th>Общая сумма рейка</th>
+          <th>Chase выплата</th>
+        </tr>
+        <tr>
+          <td>$1000</td>
+          <td>$50</td>
+        </tr>
+        <tr>
+          <td>$1500</td>
+          <td>$75</td>
+        </tr>
+        <tr>
+          <td>$2000</td>
+          <td>$100</td>
+        </tr>
+        <tr>
+          <td>$3000</td>
+          <td>$150</td>
+        </tr>
+        <tr>
+          <td>$4000</td>
+          <td>$200</td>
+        </tr>
+        <tr>
+          <td>$5000</td>
+          <td>$250</td>
+        </tr>
+        <tr>
+          <td>$6000</td>
+          <td>$300</td>
+        </tr>
+        <tr>
+          <td>$8000</td>
+          <td>$400</td>
+        </tr>
+        <tr>
+          <td>$10000</td>
+          <td>$500</td>
+        </tr>
+        <tr>
+          <td>$12000</td>
+          <td>$600</td>
+        </tr>
+        <tr>
+          <td>$15000</td>
+          <td>$750</td>
+        </tr>
+        <tr>
+          <td>Далее шаг $2500</td>
+          <td>$125 за каждый шаг</td>
+        </tr>
       </table>
-    </div>
+
+      <h3 class="subtitle">Как происходят выплаты storo08 Race Chase?</h3>
+      <p class="about">
+        Все призы по акции выплачиваются в течение первой недели следующего
+        месяца переводом внутри рума на счёт игрока.
+        <br /><br />
+        Расчёт общей суммы рейка и Chase выплаты происходит с учётом конвертации
+        EUR в USD по официальному курсу валют на день расчёта.
+      </p>
+    </main>
+
+    <footer>
+      <div class="container">
+        <h4>storo08 Race Chase © 2023</h4>
+        <h4>
+          <a href="https://c.rsppartners.com/clickthrgh?btag=a_9631b_75l_9"
+            >RedStar Poker</a
+          >
+        </h4>
+      </div>
+    </footer>
 
     <script type="module" src="scripts/index.js"></script>
   </body>

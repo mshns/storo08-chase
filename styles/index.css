@@ -1,5 +1,14 @@
+:root {
+  --primary-color: rgb(229, 18, 51);
+  --secondary-color: rgb(28, 28, 28);
+  --background-color: rgb(242, 242, 242);
+}
+
 * {
   box-sizing: border-box;
+  font-family: 'Russo One', sans-serif;
+  font-weight: 100;
+  color: var(--secondary-color);
 }
 
 html {
@@ -8,4 +17,208 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+header,
+footer {
+  background-color: var(--background-color);
+}
+
+header .container,
+footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--background-color);
+}
+
+.logo {
+  color: var(--primary-color);
+}
+
+.description {
+  max-width: 490px;
+  margin: 20px;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle,
+caption {
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+.about {
+  width: 720px;
+  margin: 0;
+  padding: 0 20px 20px;
+  border-bottom: 1px solid var(--background-color);
+}
+
+.form {
+  margin: 20px 0;
+}
+
+.form fieldset {
+  width: 720px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--background-color);
+}
+
+legend {
+  color: var(--primary-color);
+}
+
+.form-controll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.login,
+.year,
+.month {
+  font-size: 16px;
+  width: 200px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: ease-in-out 0.2s;
+}
+
+.year {
+  width: 84px;
+}
+
+.month {
+  width: 60px;
+}
+
+.button {
+  padding: 5px 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--background-color);
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+}
+
+.message {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.message .chase {
+  color: var(--primary-color);
+}
+
+table {
+  margin: 20px 0;
+}
+
+tr {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+  border-bottom: 1px solid var(--background-color);
+}
+
+tr:nth-child(odd) {
+  background-color: var(--background-color);
+}
+
+th,
+td {
+  width: 46%;
+  text-align: left;
+}
+
+th:nth-child(odd),
+td:nth-child(odd) {
+  text-align: right;
+}
+
+footer {
+  margin-top: auto;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 100%;
+  }
+
+  header .container {
+    flex-direction: column;
+  }
+
+  .logo {
+    color: var(--primary-color);
+  }
+
+  .description {
+    margin-top: 0;
+  }
+
+  .form {
+    margin: 20px;
+  }
+
+  .form fieldset {
+    max-width: 100%;
+  }
+
+  .subtitle {
+    padding: 0 20px;
+  }
+
+  .about {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .login {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .form-controll button {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
