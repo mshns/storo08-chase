@@ -26,7 +26,7 @@ form.addEventListener('submit', (event) => {
   const dateList = datesOfMonth(year.value, month.value);
 
   const requestList = dateList.map((date) => {
-    return fetch(`https://twister-races.onrender.com/chase/${date}.json`)
+    return fetch(`https://twister-races.onrender.com/chase/${date}`)
       .then((response) => response.json())
       .then((data) => data.data);
   });
